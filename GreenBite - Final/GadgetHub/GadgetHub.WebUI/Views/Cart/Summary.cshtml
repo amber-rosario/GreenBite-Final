@@ -1,0 +1,9 @@
+﻿@model GreenBite.Domain.Entities.Cart
+
+<div class="d-flex align-items-center">
+    <span class="me-3 fw-semibold">Cart: @Model.Lines.Sum(l => l.Quantity) item(s)</span>
+    <span class="me-3 fw-bold text-success">@Model.ComputeTotalValue().ToString("c")</span>
+    @Html.ActionLink("Checkout", "Index", "Cart", new { returnUrl = Request.Url.PathAndQuery }, new { @class = "btn btn-sm btn-success" })
+</div>
+
+

@@ -1,0 +1,22 @@
+﻿@model IEnumerable<GreenBite.Domain.Entities.Salad>
+
+<h6 class="text-success fw-bold mb-3">Our Fresh Salads</h6>
+
+<ul class="list-group">
+    @if (Model != null && Model.Any())
+    {
+        foreach (var salad in Model)
+        {
+            <li class="list-group-item list-group-item-action">
+                <a href="@Url.Action("Details", "Salad", new { id = salad.SaladID })" class="text-success text-decoration-none">
+                    @salad.Name
+                </a>
+            </li>
+        }
+    }
+    else
+    {
+        <li class="list-group-item">No salads available.</li>
+    }
+</ul>
+

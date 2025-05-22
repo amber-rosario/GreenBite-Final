@@ -1,0 +1,58 @@
+﻿@model GreenBite.Domain.Entities.Salad
+
+@{
+    ViewBag.Title = "Edit Salad";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card mt-4">
+    <div class="card-header bg-success text-white">
+        <h3>@(Model.SaladID == 0 ? "Add New Salad" : "Edit Salad")</h3>
+    </div>
+
+    @using (Html.BeginForm("Edit", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div class="card-body">
+            @Html.HiddenFor(m => m.SaladID)
+
+            <div class="mb-3">
+                <label class="form-label">Name</label>
+                @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Name)
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Description</label>
+                @Html.TextAreaFor(m => m.Description, 5, 40, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Description)
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Price</label>
+                @Html.TextBoxFor(m => m.Price, new { @class = "form-control", type = "number", step = "0.01" })
+                @Html.ValidationMessageFor(m => m.Price)
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Image</label><br />
+                <input type="file" name="Image" class="form-control" />
+                @if (Model.ImageData != null)
+                {
+                    <div class="mt-2">
+                        <img src="@Url.Action("GetImage", "Salad", new { saladID = Model.SaladID })" class="img-thumbnail" style="width:150px;" />
+                    </div>
+                }
+                else
+                {
+                    <div class="form-text">No image uploaded</div>
+                }
+            </div>
+        </div>
+
+        <div class="card-footer text-end">
+            <input type="submit" value="Save" class="btn btn-primary" />
+            @Html.ActionLink("Cancel", "Index", null, new { @class = "btn btn-secondary ms-2" })
+        </div>
+    }
+</div>
+

@@ -1,0 +1,7 @@
+﻿@model GreenBite.Domain.Entities.Salad
+
+<h2>@Model.Name</h2>
+<p>@Model.Description</p>
+<p>Price: @Model.Price.ToString("c")</p>
+
+<img src="@Url.Action("GetImage", "Salad", new { id = Model.SaladID })" alt="@Model.Name" />

@@ -1,0 +1,40 @@
+﻿@model GreenBite.WebUI.Models.LoginViewModel
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="p-4 rounded" style="background-color: #e6f4ea;">
+    <!-- light green like homepage -->
+    <div class="container mt-5">
+        <div class="card border-0 shadow-lg mx-auto" style="max-width: 500px;">
+            <div class="card-header bg-success text-white">
+                <h3 class="mb-0">Log in</h3>
+            </div>
+
+            <div class="card-body bg-white">
+                <p class="lead mb-4">
+                    Please log in to access the Administration area.
+                </p>
+
+                @using (Html.BeginForm())
+                {
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    <div class="mb-3">
+                        <label for="UserName" class="form-label">User Name:</label>
+                        @Html.TextBoxFor(m => m.Username, new { @class = "form-control", id = "UserName" })
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="Password" class="form-label">Password:</label>
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", id = "Password" })
+                    </div>
+
+                    <button type="submit" class="btn btn-success w-100">Log in</button>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+

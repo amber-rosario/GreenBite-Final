@@ -1,0 +1,2 @@
+C:\Users\rosamb\source\repos\GadgetHub\GadgetHub.WebUI\obj\Debug\GadgetHub.WebUI.csproj.AssemblyReference.cache
+C:\Users\rosamb\source\repos\GadgetHub\GadgetHub.WebUI\obj\Debug\GadgetHub.WebUI.csproj.CoreCompileInputs.cache
